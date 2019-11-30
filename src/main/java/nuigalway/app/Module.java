@@ -6,15 +6,15 @@ public class Module {
     private String moduleName;
     private String moduleCode;
     private ArrayList<Student> students;
-    private ArrayList<Course> relatedCourses;
+    private ArrayList<CourseProgramme> relatedCourses;
 
     public Module(String moduleName, String moduleCode) {
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
         this.students = students;
         this.relatedCourses = relatedCourses;
-        students = new ArrayList<Student>();
-        relatedCourses = new ArrayList<Course>();
+        students = new ArrayList<>();
+        relatedCourses = new ArrayList<>();
     }
 
     public String getModuleName() {
@@ -49,19 +49,19 @@ public class Module {
         students.remove(student);
     }
 
-    public ArrayList<Course> getRelatedCourses() {
+    public ArrayList<CourseProgramme> getRelatedCourses() {
         return relatedCourses;
     }
 
-    public void setRelatedCourses(ArrayList<Course> relatedCourses) {
+    public void setRelatedCourses(ArrayList<CourseProgramme> relatedCourses) {
         this.relatedCourses = relatedCourses;
     }
 
-    public void addRelatedCourse(Course course) {
+    public void addRelatedCourse(CourseProgramme course) {
         relatedCourses.add(course);
     }
 
-    public void removeRelatedCourse(Course course) {
+    public void removeRelatedCourse(CourseProgramme course) {
         relatedCourses.remove(course);
     }
 

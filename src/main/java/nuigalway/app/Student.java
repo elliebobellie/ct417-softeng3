@@ -1,26 +1,38 @@
 package nuigalway.app;
 
 import java.util.ArrayList;
-import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
 
 public class Student {
     private String name;
     private int age;
-    private DateTime dob;
-    private int id;
+    private LocalDate dob;
+    private long id;
     private String username;
-    private Course course;
+    private CourseProgramme course;
     private ArrayList<Module> modules;
 
-    public Student(String name, int age, DateTime dob, int id, Course course) {
+    public Student(String name, LocalDate dob, long id, CourseProgramme course) {
         this.name = name;
-        this.age =age;
         this.dob = dob;
         this.id = id;
         this.course = course;
         username = "";
-        modules = new ArrayList<Module>();
+        modules = new ArrayList<>();
+        age = calculateAge(dob);
     }
+
+    public int calculateAge(LocalDate dob) {
+        if (dob != null) {
+            Years age = Years.yearsBetween(dob, new LocalDate());
+            return age.getYears();
+        } else {
+            return -1;
+        }
+    }
+
+    public int getAge() { return age; }
 
     public String getName() {
         return name;
@@ -30,27 +42,20 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public DateTime getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(DateTime dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
+        age = calculateAge(dob);
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -60,11 +65,11 @@ public class Student {
         return username+age;
     }
 
-    public Course getCourse() {
+    public CourseProgramme getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(CourseProgramme course) {
         this.course = course;
     }
 
