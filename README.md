@@ -5,4 +5,6 @@ The project includes three classes:
   - Module.java
   - CourseProgramme.java
   
-Tests for the above classes are also included.
+Tests for the above classes are also included. This repo is linked to Shippable. 
+
+
